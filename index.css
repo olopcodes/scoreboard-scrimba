@@ -19,6 +19,8 @@ light-blue: #9aabd8;
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -42,3 +44,28 @@ h3 {
 }
 
 /* scoreboard styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 93%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 56px;
+}
+
+.scoreboard {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
