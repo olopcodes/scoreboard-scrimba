@@ -1,0 +1,44 @@
+/* colors 
+white- #eeeeee;
+black- #080001;
+navy-dark: #1b244a;
+red: #f94f6d;
+light-blue: #9aabd8;
+*/
+
+/* special font */
+@font-face {
+  font-family: "CursiveTimer";
+  src: url(./font/CursedTimerUlil-Aznm.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* base styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "CursiveTimer", monospace;
+  font-weight: normal;
+  background-color: #1b244a;
+}
+
+button {
+  font-family: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #eee;
+  text-transform: uppercase;
+}
+
+/* scoreboard styles */
