@@ -53,19 +53,59 @@ body {
 
 .container {
   width: 93%;
-  max-width: 800px;
+  max-width: 750px;
   display: flex;
   justify-content: space-between;
 }
 
 h2 {
   font-size: 56px;
+  margin-bottom: 16px;
 }
 
 .scoreboard {
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 280px;
+}
+
+.scoreboard-card {
+  background-color: #080001;
+  width: 85%;
+  border-radius: 8px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.scoreboard-score-total {
+  color: #f94f6d;
+  font-size: 84px;
+}
+
+.scoreboard-buttons {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreboard-btn {
+  border: 0;
+  border: 2px solid #9aabd8;
+  background-color: #1b244a;
+  color: #9aabd8;
+  padding: 16px 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.23s ease;
+}
+
+.scoreboard-btn:hover {
+  background-color: #9aabd8;
+  color: #1b244a;
 }
