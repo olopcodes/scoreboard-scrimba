@@ -1,14 +1,14 @@
 Projects Objects
 
 MAIN
-[] build scoreboard based on design
-[] make buttons work
-[] go back and forth between players
+[x] build scoreboard based on design
+[x] make buttons work
+[x] go back and forth between players
 
 STRETCH
-[] add a way to notify who's turn it is
+[x] add a way to notify who's turn it is
 [] Add new game button when game is finished
-[] Highlight leader
+[] Highlight leader when game finished
 [] more counters
     [] Periods - make a counter count down time left in period
     [] fouls - generate random fouls, allow other player to shoot for the shot they were fouled on (eg: 3pts = 3 shots). if player generates 5 fouls player fouls out the game and loses
