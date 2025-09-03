@@ -69,6 +69,7 @@ h2 {
   justify-content: center;
   flex-direction: column;
   width: 280px;
+  padding: 30px 10px;
 }
 
 .scoreboard-card {
@@ -98,7 +99,7 @@ h2 {
   border: 2px solid #9aabd8;
   background-color: #1b244a;
   color: #9aabd8;
-  padding: 16px 20px;
+  padding: 14px 18px;
   font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
@@ -108,4 +109,9 @@ h2 {
 .scoreboard-btn:hover {
   background-color: #9aabd8;
   color: #1b244a;
+}
+
+.active {
+  border: 2px solid lime;
+  border-radius: 4px;
 }

@@ -1,6 +1,8 @@
 const pointsButtonsEl = document.querySelectorAll(".scoreboard-btn");
 const homeScoreEl = document.getElementById("home-score");
 const guestScoreEl = document.getElementById("guest-score");
+const homeScoreboardEl = document.getElementById("home");
+const guestScoreboardEl = document.getElementById("guest");
 
 const homePlayer = {
   score: 0,
@@ -13,29 +15,64 @@ const guestPlayer = {
 
 pointsButtonsEl.forEach((pointButton) => {
   pointButton.addEventListener("click", (e) => {
-    // find the parent of the button
-    const parentTarget = e.target.closest("div").id;
     // get value from data attribute and convert to number
     const pointValue = +e.target.dataset.points;
-    // update score based on turn
-    increaseScore(parentTarget, pointValue);
-    // render score
-    render(parentTarget);
+
+    gameLogic(pointValue);
+
+    // change active status
+    toggleActiveClass();
+    toggleActiveState();
   });
 });
 
-function increaseScore(target, value) {
-  if (target === "guest-buttons") {
-    guestPlayer.score += value;
-  } else if (target === "home-buttons") {
-    homePlayer.score += value;
+function gameLogic(pointValue) {
+  // check which player is active and increase score
+  if (guestPlayer.isActive) {
+    increaseScore(guestPlayer, pointValue);
+    // render score
+    render(guestScoreEl, guestPlayer);
+    // disable guest button
+    disableButtons(guestScoreboardEl);
+    // enable home buttons
+    enableButtons(homeScoreboardEl);
+  }
+
+  if (homePlayer.isActive) {
+    increaseScore(homePlayer, pointValue);
+    // render score to user
+    render(homeScoreEl, homePlayer);
+    // disable home buttons
+    disableButtons(homeScoreboardEl);
+    // enable guest button
+    enableButtons(guestScoreboardEl);
   }
 }
 
-function render(target) {
-  if (target === "guest-buttons") {
-    guestScoreEl.textContent = guestPlayer.score;
-  } else if (target === "home-buttons") {
-    homeScoreEl.textContent = homePlayer.score;
-  }
+function increaseScore(obj, value) {
+  obj.score += value;
+}
+
+function render(targetEl, obj) {
+  targetEl.textContent = obj.score;
+}
+
+function toggleActiveClass() {
+  homeScoreboardEl.classList.toggle("active");
+  guestScoreboardEl.classList.toggle("active");
+}
+
+function toggleActiveState() {
+  guestPlayer.isActive = !guestPlayer.isActive;
+  homePlayer.isActive = !homePlayer.isActive;
+}
+
+function disableButtons(targetEl) {
+  const targetButtons = targetEl.querySelectorAll("button");
+  targetButtons.forEach((b) => (b.disabled = true));
+}
+
+function enableButtons(targetEl) {
+  const targetButtons = targetEl.querySelectorAll("button");
+  targetButtons.forEach((b) => (b.disabled = false));
 }
