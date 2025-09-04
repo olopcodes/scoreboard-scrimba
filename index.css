@@ -35,7 +35,6 @@ button {
   cursor: pointer;
 }
 
-h1,
 h2,
 h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -55,7 +54,16 @@ body {
   width: 93%;
   max-width: 750px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+#message {
+  color: #9aabd8;
+  font-size: 32px;
+  margin-bottom: 56px;
+  line-height: 1.3;
+  text-align: center;
 }
 
 h2 {
@@ -68,8 +76,12 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 280px;
-  padding: 30px 10px;
+  width: 300px;
+  padding: 35px 20px;
+}
+
+.scoreboard-wrapper {
+  display: flex;
 }
 
 .scoreboard-card {
@@ -84,8 +96,11 @@ h2 {
 }
 
 .scoreboard-score-total {
-  color: #f94f6d;
   font-size: 84px;
+}
+
+.red-text {
+  color: #f94f6d !important;
 }
 
 .scoreboard-buttons {
@@ -109,6 +124,11 @@ h2 {
 .scoreboard-btn:hover {
   background-color: #9aabd8;
   color: #1b244a;
+}
+
+.fouls-text {
+  font-size: 18px;
+  margin-bottom: 24px;
 }
 
 .active {
