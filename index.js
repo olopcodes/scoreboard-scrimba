@@ -9,6 +9,7 @@ const guestFoulsEl = document.getElementById("guest-fouls");
 const homeFoulsCount = document.getElementById("home-fouls-count");
 const guestFoulsCount = document.getElementById("guest-fouls-count");
 const messageEl = document.getElementById("message");
+const newGameBtn = document.getElementById("new-game");
 
 const homePlayer = {
   score: 0,
@@ -45,11 +46,31 @@ pointsButtonsEl.forEach((pointButton) => {
       // change active status
       toggleActiveClass();
       toggleActiveState();
+    } else {
+      unHide(newGameBtn);
+      document.querySelector(".active").classList.remove("active");
     }
   });
 });
 
+newGameBtn.addEventListener("click", (e) => {
+  // reset game
+});
+
 // functions =============================
+function resetGame() {
+  guestPlayer.fouls = 0;
+  gameActive = true;
+  guestPlayer.score = 0;
+  guestPlayer.isActive = false;
+  homePlayer.fouls = 0;
+  homePlayer.score = 0;
+  homeFoulsEl.textContent = 0;
+  guestFoulsEl.textContent = 0;
+  homeScoreEl.textContent = 0;
+  guestPlayer.textContent = 0;
+}
+
 function gameLogic(pointValue) {
   // check which player is active and increase score
   if (guestPlayer.isActive) {
@@ -101,6 +122,7 @@ function enableButtons(targetEl) {
   targetButtons.forEach((b) => (b.disabled = false));
 }
 
+//logic is wrong
 function generateFoul() {
   if (Math.random() > 0.5) {
     messageEl.textContent = "Guest commits foul";
@@ -112,9 +134,11 @@ function generateFoul() {
     homeFoulsCount.textContent = homePlayer.fouls;
   }
 
-  setTimeout(() => (messageEl.textContent = "Welcome to the scoreboard"), 1000);
-}
+  setTimeout(() => (messageEl.textContent = "Welcome to the scoreboard"), 1700);
 
+  playerFoulsOut(homePlayer, guestPlayer);
+}
+//logic is wrong
 function playerFoulsOut(homeObj, guestObj) {
   if (homeObj.fouls === 6) {
     messageEl.textContent = "HOME fouled out, GUEST wins";
@@ -128,7 +152,7 @@ function playerFoulsOut(homeObj, guestObj) {
 
   endGame(homeObj, guestObj);
 }
-
+//logic is wrong
 function checkScore(homeObj, guestObj) {
   if (homeObj.score >= 15) {
     messageEl.textContent = "Home Wins!";
@@ -138,17 +162,21 @@ function checkScore(homeObj, guestObj) {
 
   endGame(homeObj, guestObj);
 }
-
+// needs more work logic is worng
 function endGame(homeObj, guestObj) {
   if (
-    homeObj.score >= 15 ||
-    guestObj.score >= 15 ||
-    guestObj.fouls === 6 ||
-    homeObj.fouls === 6
+    homeObj.score >= 16 ||
+    guestObj.score >= 16 ||
+    guestObj.fouls === 5 ||
+    homeObj.fouls === 5
   ) {
     gameActive = false;
     disableButtons(homeScoreboardEl);
     disableButtons(guestScoreboardEl);
     document.querySelector(".active").classList.remove("active");
   }
+}
+
+function unHide(el) {
+  el.classList.remove("hide");
 }
