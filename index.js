@@ -39,6 +39,9 @@ pointsButtonsEl.forEach((pointButton) => {
       if (guestPlayer.score >= 5 || (homePlayer.score >= 5 && rand > 0.5)) {
         generateFoul();
       }
+
+      checkScore(homePlayer, guestPlayer);
+
       // change active status
       toggleActiveClass();
       toggleActiveState();
@@ -123,5 +126,29 @@ function playerFoulsOut(homeObj, guestObj) {
     console.log("lost");
   }
 
-  if (guestObj.fouls === 6 || homeObj.fouls === 6) gameActive = false;
+  endGame(homeObj, guestObj);
+}
+
+function checkScore(homeObj, guestObj) {
+  if (homeObj.score >= 15) {
+    messageEl.textContent = "Home Wins!";
+  } else if (guestObj.score >= 15) {
+    messageEl.textContent = "Guest Wins";
+  }
+
+  endGame(homeObj, guestObj);
+}
+
+function endGame(homeObj, guestObj) {
+  if (
+    homeObj.score >= 15 ||
+    guestObj.score >= 15 ||
+    guestObj.fouls === 6 ||
+    homeObj.fouls === 6
+  ) {
+    gameActive = false;
+    disableButtons(homeScoreboardEl);
+    disableButtons(guestScoreboardEl);
+    document.querySelector(".active").classList.remove("active");
+  }
 }
