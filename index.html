@@ -6,7 +6,7 @@
     <title>ScoreBoard</title>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body data-theme="light">
+  <body>
     <div class="container">
       <h1 id="message" class="scoreboard-message">Welcome to the Scoreboard</h1>
       <button id="new-game" class="scoreboard-btn scoreboard-btn--cta">
@@ -16,9 +16,9 @@
         <div id="home" class="scoreboard">
           <h2>Home</h2>
           <div class="scoreboard-card">
-            <p id="home-score" class="scoreboard-score-total red-text">0</p>
+            <p id="home-score" class="scoreboard-score-total">0</p>
           </div>
-          <p id="home-fouls" class="fouls-text red-text">
+          <p id="home-fouls" class="fouls-text">
             Fouls: <span id="home-fouls-count">0</span>
           </p>
           <div id="home-buttons" class="scoreboard-buttons">
@@ -30,9 +30,9 @@
         <div id="guest" class="scoreboard">
           <h2>Guest</h2>
           <div class="scoreboard-card">
-            <p id="guest-score" class="scoreboard-score-total red-text">0</p>
+            <p id="guest-score" class="scoreboard-score-total">0</p>
           </div>
-          <p id="guest-fouls" class="fouls-text red-text">
+          <p id="guest-fouls" class="fouls-text">
             Fouls: <span id="guest-fouls-count">0</span>
           </p>
           <div id="guest-buttons" class="scoreboard-buttons">
@@ -43,9 +43,24 @@
         </div>
       </div>
 
-      <button id="btn-rules" class="scoreboard-btn scoreboard-btn--rules">
-        rules
-      </button>
+      <div class="footer-buttons">
+        <button id="btn-rules" class="scoreboard-btn scoreboard-btn--rules">
+          rules
+        </button>
+
+        <div id="theme" class="theme">
+          <p>Change theme:</p>
+          <div class="theme-themes">
+            <button id="theme-current" class="theme-color-btn"></button>
+            <button id="theme-light" class="theme-color-btn"></button>
+            <button id="theme-candy" class="theme-color-btn"></button>
+            <button id="theme-tropical" class="theme-color-btn"></button>
+            <button id="theme-minimal" class="theme-color-btn"></button>
+            <button id="theme-dark" class="theme-color-btn"></button>
+          </div>
+        </div>
+      </div>
+
       <div id="modal" class="modal hide">
         <div class="modal-content">
           <button id="btn-close" class="scoreboard-btn">X</button>

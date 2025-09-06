@@ -36,7 +36,8 @@ button {
 }
 
 h2,
-h3 {
+h3,
+.theme p {
   font-family: Arial, Helvetica, sans-serif;
   color: #eee;
   text-transform: uppercase;
@@ -68,6 +69,10 @@ body {
 
 h2 {
   font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.theme p {
   margin-bottom: 16px;
 }
 
@@ -144,7 +149,7 @@ h2 {
 }
 
 .active {
-  border: 2px solid lime;
+  border: 2px solid lime !important;
   border-radius: 4px;
 }
 
@@ -159,7 +164,6 @@ h2 {
 }
 
 .scoreboard-btn--rules {
-  margin-top: 48px;
   align-self: flex-start;
 }
 
@@ -205,12 +209,63 @@ h2 {
   line-height: 1.5;
 }
 
+.footer-buttons {
+  margin-top: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-themes {
+}
+
+.theme-color-btn {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  border-radius: 50px;
+}
+
+#theme-current {
+  background-color: #1b244a;
+  border-color: #1b244a;
+}
+
+#theme-light {
+  background-color: #fff;
+  border-color: white;
+}
+
+#theme-candy {
+  background-color: #f15bb5;
+  border-color: #f15bb5;
+}
+
+#theme-tropical {
+  background-color: #00f5d4;
+  border-color: #00f5d4;
+}
+
+#theme-minimal {
+  background-color: #bfc0c0;
+  border-color: #bfc0c0;
+}
+
+#theme-dark {
+  background-color: #2d3142;
+  border-color: #2d3142;
+}
+
+/* light theme */
 [data-theme="light"] {
   background-color: white;
 }
 
 [data-theme="light"] h2,
-[data-theme="light"] h3 {
+[data-theme="light"] h3,
+[data-theme="light"] .theme p {
   color: #9aabd8;
 }
 
@@ -238,5 +293,251 @@ h2 {
 }
 
 [data-theme="light"] .active {
-  border-color: forestgreen;
+  border-color: forestgreen !important;
+}
+
+[data-theme="light"] .modal {
+  background-color: #eee;
+}
+
+/* candy */
+[data-theme="candy"] {
+  background-color: #00bbf9;
+}
+
+[data-theme="candy"] #message {
+  color: #f15bb5;
+}
+
+[data-theme="candy"] h2,
+[data-theme="candy"] h3,
+[data-theme="candy"] .theme p {
+  color: #00bbf9;
+}
+
+[data-theme="candy"] .scoreboard-card {
+  background-color: #fee440;
+  color: #9b5de5;
+}
+
+[data-theme="candy"] .scoreboard-btn {
+  background-color: #fee440;
+  color: #f15bb5;
+  border-color: #00bbf9;
+}
+
+[data-theme="candy"] .scoreboard-btn:hover {
+  background-color: #f15bb5;
+  color: white;
+}
+
+[data-theme="candy"] .scoreboard-btn--cta {
+  background-color: #f15bb5;
+  border-color: #f15bb5;
+  color: #eee;
+}
+
+[data-theme="candy"] .scoreboard-btn--cta:hover {
+  background-color: #00bbf9;
+  border-color: #00bbf9;
+  color: #eee;
+}
+
+[data-theme="candy"] .fouls-text {
+  color: #eee;
+}
+
+[data-theme="candy"] .active {
+  border-color: #00f5d4 !important;
+}
+
+[data-theme="candy"] .modal {
+  background-color: #fee440;
+}
+
+[data-theme="candy"] .rules-list {
+  color: #f15bb5;
+}
+
+/* tropical */
+[data-theme="tropical"] {
+  background-color: #ffffff;
+}
+
+[data-theme="tropical"] #message {
+  color: #2ec4b6;
+}
+
+[data-theme="tropical"] h2,
+[data-theme="tropical"] h3,
+[data-theme="candy"] .theme p {
+  color: #ff9f1c;
+}
+
+[data-theme="tropical"] .scoreboard-card {
+  background-color: #cbf3f0;
+  color: #ff9f1c;
+}
+
+[data-theme="tropical"] .scoreboard-btn {
+  background-color: #ffbf69;
+  color: #fff;
+  border-color: #ffbf69;
+}
+
+[data-theme="tropical"] .scoreboard-btn:hover {
+  background-color: #ff9f1c;
+  color: white;
+}
+
+[data-theme="tropical"] .scoreboard-btn--cta {
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+  color: #eee;
+}
+
+[data-theme="tropical"] .scoreboard-btn--cta:hover {
+  background-color: #cbf3f0;
+  border-color: #cbf3f0;
+  color: #ff9f1c;
+}
+
+[data-theme="tropical"] .fouls-text {
+  color: #2ec4b6;
+}
+
+[data-theme="tropical"] .active {
+  border-color: #ffbf69 !important;
+}
+
+[data-theme="tropical"] .modal {
+  background-color: #cbf3f0;
+}
+
+[data-theme="tropical"] .rules-list {
+  color: #2ec4b6;
+}
+
+/* minimalist */
+[data-theme="minimal"] {
+  background-color: #bfc0c0;
+}
+
+[data-theme="minimal"] #message {
+  color: #4f5d75;
+}
+
+[data-theme="minimal"] h2,
+[data-theme="minimal"] h3,
+[data-theme="minimal"] .theme p {
+  color: #4f5d75;
+}
+
+[data-theme="minimal"] .scoreboard-card {
+  background-color: #fff;
+  color: #ef8354;
+}
+
+[data-theme="minimal"] .scoreboard-btn {
+  background-color: #2d3142;
+  color: #fff;
+  border-color: #2d3142;
+}
+
+[data-theme="minimal"] .scoreboard-btn:hover {
+  background-color: #4f5d75;
+  border-color: #4f5d75;
+  color: white;
+}
+
+[data-theme="minimal"] .scoreboard-btn--cta {
+  background-color: #ef8354;
+  border-color: #ef8354;
+  color: #eee;
+}
+
+[data-theme="minimal"] .scoreboard-btn--cta:hover {
+  background-color: #2d3142;
+  border-color: #2d3142;
+  color: #ef8354;
+}
+
+[data-theme="minimal"] .fouls-text {
+  color: #ef8354;
+}
+
+[data-theme="minimal"] .active {
+  border-color: #ef8354 !important;
+}
+
+[data-theme="minimal"] .modal {
+  background-color: #fff;
+}
+
+[data-theme="minimal"] .rules-list {
+  color: #ef8354;
+}
+
+/* dark */
+[data-theme="dark"] {
+  background-color: #2d3142;
+}
+
+[data-theme="dark"] #message {
+  color: #fff;
+}
+
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .theme p {
+  color: #ef8354;
+}
+
+[data-theme="dark"] .scoreboard-card {
+  background-color: #fff;
+  color: #ef8354;
+}
+
+[data-theme="dark"] .scoreboard-btn {
+  background-color: #bfc0c0;
+  border-color: #bfc0c0;
+  color: #2d3142;
+}
+
+[data-theme="dark"] .scoreboard-btn:hover {
+  background-color: #ef8354;
+  border-color: #ef8354;
+  color: #2d3142;
+}
+
+[data-theme="dark"] .scoreboard-btn--cta {
+  background-color: #4f5d75;
+  border-color: #4f5d75;
+  color: #ef8354;
+}
+
+[data-theme="dark"] .scoreboard-btn--cta:hover {
+  background-color: #2d3142;
+  border-color: #2d3142;
+  color: #ef8354;
+}
+
+[data-theme="dark"] .fouls-text {
+  color: #ef8354;
+}
+
+[data-theme="dark"] .active {
+  border-color: #ef8354 !important;
+}
+
+[data-theme="dark"] .modal {
+  background-color: #2d3142;
+}
+
+[data-theme="dark"] .rules-title {
+  color: white;
+}
+
+[data-theme="dark"] .rules-list {
+  color: #ef8354;
 }
