@@ -12,7 +12,8 @@ const messageEl = document.getElementById("message");
 const newGameBtn = document.getElementById("new-game");
 const modal = document.querySelector(".modal");
 const rulesBtn = document.getElementById("btn-rules");
-
+const themeColorButtons = document.querySelectorAll(".theme-color-btn");
+const body = document.querySelector("body");
 const homePlayer = {
   score: 0,
   isPlaying: true,
@@ -71,12 +72,24 @@ modal.addEventListener("click", (e) => {
     modal.classList.remove("show");
   }
 });
+
+themeColorButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    button.classList.remove("active");
+    const theme = e.target.id.split("-")[1];
+    saveTheme(theme);
+    changeColorTheme(theme, e.target);
+  });
+});
 // functions ====================================
+
+saveTheme("current");
+setTheme();
 
 // control the whole app
 function intial() {
   updateMessage("Home player's turn");
-  toggleActivePlayer(homeScoreboardContainer);
+  toggleActive(homeScoreboardContainer);
   toggleDisableScoreButtons(guestScoreboardContainer, "add");
 }
 
@@ -97,8 +110,14 @@ function updateMessage(msg) {
   messageEl.textContent = msg;
 }
 
-function toggleActivePlayer(el) {
+function toggleActive(el) {
   el.classList.toggle("active");
+}
+
+function changeColorTheme(idValue, button) {
+  document.querySelector(".theme-color-btn.active").classList.remove("active");
+  body.dataset.theme = idValue;
+  toggleActive(button);
 }
 
 function updateScoreTotal(obj, score) {
@@ -131,16 +150,16 @@ function homePlayerGameState() {
   updateMessage("guest player's turn");
   toggleDisableScoreButtons(guestScoreboardContainer, "remove");
   toggleDisableScoreButtons(homeScoreboardContainer, "add");
-  toggleActivePlayer(guestScoreboardContainer);
-  toggleActivePlayer(homeScoreboardContainer);
+  toggleActive(guestScoreboardContainer);
+  toggleActive(homeScoreboardContainer);
 }
 
 function guestPlayerGameState() {
   updateMessage("home player's turn");
   toggleDisableScoreButtons(guestScoreboardContainer, "add");
   toggleDisableScoreButtons(homeScoreboardContainer, "remove");
-  toggleActivePlayer(guestScoreboardContainer);
-  toggleActivePlayer(homeScoreboardContainer);
+  toggleActive(guestScoreboardContainer);
+  toggleActive(homeScoreboardContainer);
 }
 
 function generateRandomNumber(obj, obj1, score) {
@@ -154,6 +173,21 @@ function generateRandomNumber(obj, obj1, score) {
       return "no foul";
     }
   }
+}
+
+function saveTheme(theme) {
+  localStorage.setItem("theme", theme);
+}
+
+function getTheme() {
+  return localStorage.getItem("theme");
+}
+
+function setTheme() {
+  const theme = getTheme();
+  body.dataset.theme = theme;
+
+  document.getElementById(`theme-${theme}`).classList.add("active");
 }
 
 function generateFouls(home, guest, score) {
@@ -178,7 +212,6 @@ function playerFouledOut(home, guest) {
     } else {
       updateMessage("guest fouled out, home wins!");
     }
-    messageEl.style.color = "#f94f6d";
     gameActive = false;
     setTimeout(() => handleEndOfGame(), 1500);
   }
@@ -210,9 +243,8 @@ function resetGame() {
   guestPlayer.isPlaying = false;
   guestPlayer.score = 0;
   gameActive = true;
-  messageEl.style.color = "#9aabd8";
-  toggleActivePlayer(homeScoreboardContainer);
-  toggleActivePlayer(guestScoreboardContainer);
+  toggleActive(homeScoreboardContainer);
+  toggleActive(guestScoreboardContainer);
   toggleDisableScoreButtons(homeScoreboardContainer, "remove");
   toggleDisableScoreButtons(guestScoreboardContainer, "remove");
   intial();

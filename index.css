@@ -98,14 +98,11 @@ h2 {
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
+  color: #f94f6d;
 }
 
 .scoreboard-score-total {
   font-size: 84px;
-}
-
-.red-text {
-  color: #f94f6d !important;
 }
 
 .scoreboard-buttons {
@@ -146,6 +143,7 @@ h2 {
 .fouls-text {
   font-size: 18px;
   margin-bottom: 24px;
+  color: #f94f6d;
 }
 
 .active {
@@ -222,6 +220,7 @@ h2 {
 
 .theme-color-btn {
   padding: 0;
+  border: 1.5px solid;
   width: 30px;
   height: 30px;
   margin-right: 8px;
