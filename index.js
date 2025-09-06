@@ -83,8 +83,10 @@ themeColorButtons.forEach((button) => {
 });
 // functions ====================================
 
-saveTheme("current");
-setTheme();
+if (!getTheme()) {
+  saveTheme("current");
+  setTheme();
+}
 
 // control the whole app
 function intial() {
