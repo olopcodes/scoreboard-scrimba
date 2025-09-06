@@ -155,4 +155,5 @@ h2 {
 .disabled {
   filter: blur(3px);
   opacity: 0.5;
+  pointer-events: none;
 }
