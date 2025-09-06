@@ -10,6 +10,8 @@ const homeFoulsCount = document.getElementById("home-fouls-count");
 const guestFoulsCount = document.getElementById("guest-fouls-count");
 const messageEl = document.getElementById("message");
 const newGameBtn = document.getElementById("new-game");
+const modal = document.querySelector(".modal");
+const rulesBtn = document.getElementById("btn-rules");
 
 const homePlayer = {
   score: 0,
@@ -59,6 +61,15 @@ scoreButtons.forEach((button) => {
   });
 });
 
+rulesBtn.addEventListener("click", (e) => {
+  modal.classList.add("show");
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target.id === "modal" || e.target.id === "btn-close") {
+    modal.classList.remove("show");
+  }
+});
 // functions ====================================
 
 // control the whole app
