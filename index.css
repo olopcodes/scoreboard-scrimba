@@ -161,10 +161,6 @@ h2 {
   pointer-events: none;
 }
 
-.scoreboard-btn--rules {
-  align-self: flex-start;
-}
-
 .modal {
   transform: translateY(-120%);
   transition: transform 0.23s ease;
@@ -213,9 +209,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.theme-themes {
 }
 
 .theme-color-btn {
@@ -539,4 +532,27 @@ h2 {
 
 [data-theme="dark"] .rules-list {
   color: #ef8354;
+}
+
+@media screen and (max-width: 566px) {
+  body {
+    margin: 32px 0;
+  }
+
+  .scoreboard-wrapper {
+    flex-direction: column;
+  }
+
+  .theme p {
+    text-align: center;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .scoreboard-btn--rules {
+    order: 2;
+  }
 }
