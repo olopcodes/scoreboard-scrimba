@@ -534,7 +534,7 @@ h2 {
   color: #ef8354;
 }
 
-@media screen and (max-width: 566px) {
+@media screen and (max-width: 615px) {
   body {
     margin: 32px 0;
   }
