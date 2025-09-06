@@ -86,6 +86,8 @@ themeColorButtons.forEach((button) => {
 if (!getTheme()) {
   saveTheme("current");
   setTheme();
+} else {
+  setTheme();
 }
 
 // control the whole app
