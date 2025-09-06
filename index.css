@@ -204,3 +204,39 @@ h2 {
   margin-bottom: 16px;
   line-height: 1.5;
 }
+
+[data-theme="light"] {
+  background-color: white;
+}
+
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+  color: #9aabd8;
+}
+
+[data-theme="light"] .scoreboard-card {
+  background-color: #eee;
+}
+
+[data-theme="light"] .scoreboard-btn {
+  background-color: #eee;
+}
+
+[data-theme="light"] .scoreboard-btn:hover {
+  background-color: #9aabd8;
+  color: white;
+}
+
+[data-theme="light"] .scoreboard-btn--cta {
+  border-color: #1b244a;
+  color: #1b244a;
+}
+
+[data-theme="light"] .scoreboard-btn--cta:hover {
+  background-color: #1b244a;
+  color: #eee;
+}
+
+[data-theme="light"] .active {
+  border-color: forestgreen;
+}

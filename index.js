@@ -29,6 +29,7 @@ let gameActive = false;
 
 // event listeners ===========================
 newGameBtn.addEventListener("click", (e) => {
+  if (gameActive) return;
   gameActive = true;
   intial();
 });
