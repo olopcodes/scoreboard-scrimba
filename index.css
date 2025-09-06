@@ -541,6 +541,7 @@ h2 {
 
   .scoreboard-wrapper {
     flex-direction: column;
+    gap: 32px;
   }
 
   .theme p {

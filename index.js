@@ -246,10 +246,12 @@ function resetGame() {
   guestPlayer.fouls = 0;
   guestPlayer.isPlaying = false;
   guestPlayer.score = 0;
-  gameActive = true;
-  toggleActive(homeScoreboardContainer);
-  toggleActive(guestScoreboardContainer);
-  toggleDisableScoreButtons(homeScoreboardContainer, "remove");
-  toggleDisableScoreButtons(guestScoreboardContainer, "remove");
+  homeScoreEl.textContent = 0;
+  guestScoreEl.textContent = 0;
+  guestFoulsCount.textContent = 0;
+  homeFoulsCount.textContent = 0;
+  homeScoreboardContainer.classList.remove("active");
+  guestScoreboardContainer.classList.remove("active");
+  scoreButtons.forEach((b) => (b.disabled = false));
   intial();
 }
